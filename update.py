@@ -13,7 +13,7 @@ for repo in repoData["repos"]:
     try:
       response = requests.get("https://api.github.com/repos/" + repo["owner"] + "/" + repo["repoName"] + "/releases")
       file = open("release-versions/" + repo["repoName"] + ".txt", "w")
-      file.write(json.dumps(json.loads(response.json()), indent=4, sort_keys=True))
+      file.write(str(response.json()))
       file.close()
       print("Latest version for: " + repo["owner"] + "/" + repo["repoName"] + " | " + response.json()["tag_name"])
     except Exception as e: 
