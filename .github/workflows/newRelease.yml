@@ -21,7 +21,7 @@ jobs:
       - name: Fetch release version
         run: |
           curl -sL https://api.github.com/repos/bozbez/win-capture-audio/releases | \
-          jq -r ".tag_name" > release-versions/win-capture-audio-latest.txt
+          jq > release-versions/win-capture-audio-latest.txt
       - name: Check for modified files
         id: git-check
         run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
