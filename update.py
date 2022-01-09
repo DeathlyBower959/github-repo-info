@@ -15,7 +15,7 @@ for repo in repoData["repos"]:
       f.write(response.json())
       f.close()
       print("Latest version for: " + repo["owner"] + "/" + repo["repoName"] + ", was updated!")
-    except Exception, e: 
+    except Exception as e: 
       print("Failed to update latest version for: " + repo["owner"] + "/" + repo["repoName"])
       print(e)
       index += 1
