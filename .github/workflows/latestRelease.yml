@@ -22,15 +22,10 @@ jobs:
         run: |
             repos=$(jq -r '.repos' "repos.json")
             for i in $(echo "${repos}" | jq -r '.[] | @base64'); 
-            do
-              _jq()
-              {
-                echo ${i} | base64 --decode | jq -r ${1}
-              }
-              
-              curl -sL "https://api.github.com/repos/$(_jq, '.owner')/$(_jq, '.name')/releases" | \
-              touch "release-versions/$(_jq, '.name')-latest.txt" | \
-              jq > "release-versions/$(_jq, '.name')-latest.txt"
+            do              
+              curl -sL "https://api.github.com/repos/$(jq, '.owner')/$(_jq, '.name')/releases" | \
+              touch "release-versions/$(jq, '.name')-latest.txt" | \
+              jq > "release-versions/$(jq, '.name')-latest.txt"
             done
           
       - name: Check for modified files
