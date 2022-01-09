@@ -29,5 +29,6 @@ jobs:
         if: steps.git-check.outputs.modified == 'true'
         run: |
           git config --local user.name ${{ github.actor }}
+          git add release-versions/win-capture-audio.latest.txt
           git commit -m "New release version"
           git push
