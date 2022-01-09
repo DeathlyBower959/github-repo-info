@@ -20,9 +20,8 @@ jobs:
           token: ${{ secrets.G_TOKEN }}
       - name: Fetch all releases
         run: |         
-          RELEASES = $(curl -sL "https://api.github.com/repos/bozbez/win-capture-audio/releases")
-          touch "release-versions/win-capture-audio-latest.txt"
-          echo "$RELEASES" > "release-versions/win-capture-audio-latest.txt"
+          curl -sL "https://api.github.com/repos/bozbez/win-capture-audio/releases" | \
+          echo > "release-versions/win-capture-audio-latest.txt"
           
       - name: Check for modified files
         id: git-check
