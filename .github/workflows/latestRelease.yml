@@ -20,10 +20,11 @@ jobs:
           token: ${{ secrets.G_TOKEN }}
       - name: Fetch all releases
         run: |
+            sudo apt-get install jq
             repos=$(jq -r '.repos' "repos.json")
             for i in $(echo "${repos}" | jq -r '.[] | @base64'); 
             do              
-              curl -sL "https://api.github.com/repos/$(jq, '.owner')/$(_jq, '.name')/releases" | \
+              curl -sL "https://api.github.com/repos/$(jq, '.owner')/$(jq, '.name')/releases" | \
               touch "release-versions/$(jq, '.name')-latest.txt" | \
               jq > "release-versions/$(jq, '.name')-latest.txt"
             done
