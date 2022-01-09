@@ -1,6 +1,5 @@
 import requests
 import json
-from pprint import pprint 
 
 repos = open("repos.json")
 repoData = json.load(repos)
@@ -13,9 +12,10 @@ for repo in repoData["repos"]:
     print("Fetching latest versions: " + repo["owner"] + "/" + repo["repoName"])
     try:
       response = requests.get("https://api.github.com/repos/" + repo["owner"] + "/" + repo["repoName"] + "/releases")
-      print(response)
+
       with open("release-versions/" + repo["repoName"] + "-latest.txt", "w") as fObj:
-        pprint(response.json(), stream=fObj)
+        pprint(str(response.json()), stream=fObj)
+        fObj.close()
       print("Latest version for: " + repo["owner"] + "/" + repo["repoName"] + " | " + response.json()["tag_name"])
     except Exception as e: 
       print("Failed to update latest version for: " + repo["owner"] + "/" + repo["repoName"])
