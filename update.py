@@ -14,7 +14,7 @@ for repo in repoData["repos"]:
     try:
       response = requests.get("https://api.github.com/repos/" + repo["owner"] + "/" + repo["repoName"] + "/releases")
       print(response)
-      with open("release-versions/" + repo["repoName"] + "-latest.txt", "w") as fObj
+      with open("release-versions/" + repo["repoName"] + "-latest.txt", "w") as fObj:
         pp(response.json(), stream=fObj)
       print("Latest version for: " + repo["owner"] + "/" + repo["repoName"] + " | " + response.json()["tag_name"])
     except Exception as e: 
