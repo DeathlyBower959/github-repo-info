@@ -30,8 +30,6 @@ jobs:
           pip install -r requirements.txt
           
       - name: Execute Python
-        env: 
-          G_TOKEN: ${{ secrets.G_TOKEN }}
         run: python update.py
           
       - name: Check for modified files
