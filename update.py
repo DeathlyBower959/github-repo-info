@@ -17,6 +17,7 @@ for repo in repoData["repos"]:
       print("Latest version for: " + repo["owner"] + "/" + repo["repoName"] + ", was updated!")
     except: 
       print("Failed to update latest version for: " + repo["owner"] + "/" + repo["repoName"])
+      index += 1
   else:
     print("Failed to update latest version, for repo at index " + str(index) + " because insufficient data was supplied.")
-  index++
+    index += 1
