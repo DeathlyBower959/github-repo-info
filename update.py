@@ -13,8 +13,8 @@ for repo in repoData["repos"]:
     try:
       response = requests.get("https://api.github.com/repos/" + repo["owner"] + "/" + repo["repoName"] + "/releases")
       file = open("release-versions/" + repo["repoName"] + ".txt", "w")
-      f.write(response.json())
-      f.close()
+      file.write(response.json())
+      file.close()
       print("Latest version for: " + repo["owner"] + "/" + repo["repoName"] + " | " + response.json()["tag_name"])
     except Exception as e: 
       print("Failed to update latest version for: " + repo["owner"] + "/" + repo["repoName"])
@@ -23,4 +23,3 @@ for repo in repoData["repos"]:
   else:
     print("Failed to update latest version, for repo at index " + str(index) + " because insufficient data was supplied.")
   index += 1
-  print(">----------<")
