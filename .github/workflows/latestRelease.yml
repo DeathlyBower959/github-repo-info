@@ -20,14 +20,8 @@ jobs:
           token: ${{ secrets.G_TOKEN }}
       - name: Fetch all releases
         run: |
-            repos=$(jq -r '.repos' "repos.json") |
-            echo "${repos}" |
-            for i in $(echo "${repos}" | jq -r '.[] | @base64'); 
-            do
-              curl -sL "https://api.github.com/repos/$i.owner/$i.name/releases" | \
-              echo "" > "release-versions/$i.name-latest.txt" | \
-              jq > "release-versions/$i.name-latest.txt"
-            done
+            repos=$(jq -r '.repos' "repos.json") | \
+            echo "${repos}"
           
       - name: Check for modified files
         id: git-check
