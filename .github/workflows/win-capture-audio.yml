@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: win-capture-audio Latest Release
+name: Get Latest Release
 
 # Controls when the workflow will run
 on:
@@ -34,7 +34,7 @@ jobs:
       - name: Check for modified files
         id: git-check
         run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
-      - name: Commit latest release version
+      - name: Commit latest release versions
         if: steps.git-check.outputs.modified == 'true'
         run: |
           git config --local user.name "Latest Version Helper"
