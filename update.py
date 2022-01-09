@@ -1,5 +1,12 @@
 import requests
 import json
 
-response = requests.get("https://api.github.com/repos/bozbez/win-capture-audio/releases")
-print(json.dumps(json.loads(response.json()), index=4))
+repos = open("repos.json")
+repoData = json.load(repos)
+
+for repo in repoData["repos"]:
+  response = requests.get("https://api.github.com/repos/" + repo.owner + "/" + repo.repoName + "/releases")
+
+  file = open("release-versions/" + repo.repoName + ".txt", "w")
+  f.write(response.json())
+  f.close()
