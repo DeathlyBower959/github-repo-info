@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.REPO_SCOPED_TOKEN }}
+          token: ${{ secrets.G_TOKEN }}
       - name: Fetch release version
         run: |
           curl -sL https://api.github.com/repos/bozbez/win-capture-audio/releases | \
@@ -28,10 +28,6 @@ jobs:
       - name: Commit latest release version
         if: steps.git-check.outputs.modified == 'true'
         run: |
+          git config --local user.name ${{ github.actor }}
           git commit -m "New release version"
           git push
-      - name: Push New Release
-        uses: ad-m/github-push-action@master
-        with: 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
