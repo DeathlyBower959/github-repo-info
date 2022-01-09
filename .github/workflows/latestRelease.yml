@@ -24,6 +24,7 @@ jobs:
           for i in $(echo "${repos}" | jq -r '.[] | @base64'); 
           do
             curl -sL "https://api.github.com/repos/$i.owner/$i.name/releases" | \
+            echo "" > "release-versions/$i.name-latest.txt" | \
             jq > "release-versions/$i.name-latest.txt"
           done
       - name: Check for modified files
