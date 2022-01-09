@@ -20,13 +20,8 @@ jobs:
           token: ${{ secrets.G_TOKEN }}
       - name: Fetch all releases
         run: |
-          repos = (
-            {
-              owner: "bozbez"
-              name: "win-capture-audio"
-            }
-          )
-          for i in "${repos[@]}"
+          repos=$(jq -r '.repos' "repos.json") |
+          for i in $(echo "${repos}" | jq -r '.[] | @base64'); 
           do
             curl -sL "https://api.github.com/repos/$i.owner/$i.name/releases" | \
             jq > "release-versions/$i.name-latest.txt"
