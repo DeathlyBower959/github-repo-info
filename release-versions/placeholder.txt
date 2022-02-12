@@ -1,1 +1,1 @@
-Ignore this file, just so folder is no delete
+Ignore this file, just so folder doesn't get deleted by github.
