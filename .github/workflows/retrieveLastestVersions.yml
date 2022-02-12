@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt
           
       - name: Execute Python
-        run: python update.py
+        run: python latestVersions.py
           
       - name: Check for modified files
         id: git-check
