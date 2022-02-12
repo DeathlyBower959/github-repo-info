@@ -1,19 +1,16 @@
+# GitHub Repo Information
 
+This is just a simple repository used to get simple information about repositories
 
-# application-latest-releases
-
-This is just a simple repository used to get the latest release on any github repo
-(Its just a workflow file)
-
+# Latest Releases
 If you want a specific repo, create an issue with this format
 ```
 Repo Owner: OwnerName or OrgName
 Repo Name: Name
 
-# Only put this if you need it to check more frequently than it currently is
+Only put this if you need it to check more frequently than it currently is
 cron: * * * * *
 ```
-
 
 ---
 ### Notes:
@@ -21,8 +18,7 @@ cron: * * * * *
  - Even after it finds the new version of the app, it takes 5 minutes to update because of GitHub caching
 ---
 
-
-## JSON Format
+### JSON Format
 The releases are located in an array, under the key "data", as you can see in the representation below.
 
 ```json
