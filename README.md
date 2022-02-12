@@ -12,7 +12,9 @@ Repo Name: Name
 ```
 
 ---
-#### Runs at the end of every day (cron: '0 0 * * *')
+### Notes:
+ - Runs every 30 minutes (`*/30 * * * *`)
+ - Even after it finds the new version of the app, it takes 5 minutes to update because of GitHub caching
 ---
 
 
