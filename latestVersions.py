@@ -71,7 +71,7 @@ def noLongerRequired(owner, repoName):
 
 
 for owner in os.listdir('release-versions'):
-    if (os.path.isdir(owner):
+    if (owner not "placeholder.txt"):
         for repo in os.listdir(f'release-versions/{owner}'):
             noLongerRequired(owner, os.path.splitext(repo)[0])
 
