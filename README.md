@@ -5,11 +5,15 @@
 This is just a simple repository used to get the latest release on any github repo
 (Its just a workflow file)
 
-If you would like me to add a specific repo, create an issue with this format
+If you want a specific repo, create an issue with this format
 ```
-Repo Owner: OwnerName/Org
+Repo Owner: OwnerName or OrgName
 Repo Name: Name
+
+# Only put this if you need it to check more frequently than it currently is
+cron: * * * * *
 ```
+
 
 ---
 ### Notes:
