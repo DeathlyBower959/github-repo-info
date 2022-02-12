@@ -13,7 +13,7 @@ Repo Name: Name
 
 ---
 ### Notes:
- - Runs every 30 minutes (`*/30 * * * *`)
+ - Runs every 6 hours (`* */6 * * *`)
  - Even after it finds the new version of the app, it takes 5 minutes to update because of GitHub caching
 ---
 
