@@ -71,10 +71,10 @@ def noLongerRequired(owner, repoName):
 
 
 for owner in os.listdir('release-versions'):
-    print(owner)
-    for repo in os.listdir(f'release-versions/{owner}'):
-        noLongerRequired(owner, os.path.splitext(repo)[0])
+    if (os.path.isdir(owner))
+        for repo in os.listdir(f'release-versions/{owner}'):
+            noLongerRequired(owner, os.path.splitext(repo)[0])
 
-    if (len(os.listdir(f'./release-versions/{owner}')) == 0):
-        os.rmdir(f'./release-versions/{owner}')
-        print(f'Removed {owner}!')
+        if (len(os.listdir(f'./release-versions/{owner}')) == 0):
+            os.rmdir(f'./release-versions/{owner}')
+            print(f'Removed {owner}!')
