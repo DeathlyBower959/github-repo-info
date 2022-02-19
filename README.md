@@ -14,7 +14,7 @@ cron: * * * * *
 
 ---
 ### Notes:
- - Runs every 6 hours (`* */6 * * *`)
+ - Runs every 30 minutes (`*/30 * * * *`)
  - Even after it finds the new version of the app, it takes 5 minutes to update because of GitHub caching
 ---
 
